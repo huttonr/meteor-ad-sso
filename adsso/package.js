@@ -20,13 +20,9 @@ Package.onUse(function (api) {
   api.use("underscore", "server");
   api.use("meteorhacks:picker@1.0.3");
 
-  api.use("blaze-html-templates", "client");
-
   api.use("accounts-base", ["client", "server"]);
 
-  //api.addFiles("adsso.html", "client");
   api.addFiles("adsso-client.js", "client");
-
   api.addFiles("adsso-server.js", "server");
 
   api.export("SSO", ["client", "server"]);

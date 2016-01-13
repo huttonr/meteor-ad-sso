@@ -1,15 +1,12 @@
 SSO = {};
 
 var authId = Meteor.uuid();
-//var timesRefreshed = new ReactiveVar();
 
 Meteor.startup(function () {
   var env = __meteor_runtime_config__.ROOT_URL;
   var isProd = env.indexOf('localhost') === -1 && env.indexOf('127.0') === -1;
 
-  var src = (isProd ? SSO.authUrl + SSO.authApp : SSO.devAuthUrl + SSO.devAuthApp) + "/" + authId;
-
-  //timesRefreshed.set(0);
+  var src = (isProd ? SSO.authUrl + SSO.authApp : SSO.devAuthUrl + SSO.devAuthApp) + "/" + authId + "?q=" + Random.id();
 
   var $iframe = $('<iframe></iframe>')
     .attr('style', 'display: none')
